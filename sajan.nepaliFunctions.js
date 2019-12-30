@@ -259,7 +259,13 @@ var NepaliFunctions = (function () {
 		};
 	}
 
-	// Convert Date Format
+	/**
+	 * This function returns date in target format.
+	 * @param {string} dateString any date string
+	 * @param {string} dateFormat source format
+	 * @param {string} returnFormat target format
+	 * @returns {string} returns date in target format.
+	 */
 	function ConvertDateFormat(dateString, dateFormat, returnFormat) {
 		// Check Date Format Validity
 		dateFormat = dateFormat ? (dateFormats.indexOf(dateFormat) > -1 ? dateFormat : 'MM/DD/YYYY') : 'MM/DD/YYYY';
@@ -314,7 +320,13 @@ var NepaliFunctions = (function () {
 		return returnDate;
 	}
 
-	// Convert AD to BS
+	/**
+	 * This function converts AD date to BS date.
+	 * @param {string} adDate any AD date
+	 * @param {string} format any format
+	 * @param {string} returnFormat any format
+	 * @returns {string} converts AD date to BS date.
+	 */
 	function AD2BS(adDate, format, returnFormat) {
 		format = format ? format : "MM/DD/YYYY";
 		returnFormat = returnFormat ? returnFormat : "YYYY/MM/DD";
@@ -322,7 +334,13 @@ var NepaliFunctions = (function () {
 		return ndc.ad2bs(adDate, format, returnFormat);
 	}
 
-	// Convert BS to AD
+	/**
+	 * This function converts BS date to AD date.
+	 * @param {string} bsDate any BS date
+	 * @param {string} format any format
+	 * @param {string} returnFormat any format
+	 * @returns {string} converts BS date to AD date.
+	 */
 	function BS2AD(bsDate, format, returnFormat) {
 		format = format ? (dateFormats.indexOf(format) > -1 ? format : 'YYYY/MM/DD') : "YYYY/MM/DD";
 		if (!ValidateBsDate(bsDate, format)) return false;
@@ -331,7 +349,12 @@ var NepaliFunctions = (function () {
 		return ndc.bs2ad(bsDate, format, returnFormat);
 	}
 
-	// Validate Nepali Date
+	/**
+	 * This function checks the validity of the BS date.
+	 * @param {string} bsDate any BS date
+	 * @param {string} format any format
+	 * @returns {boolean} the validity of the BS date.
+	 */
 	function ValidateBsDate(bsDate, format) {
 		format = format ? (dateFormats.indexOf(format) > -1 ? format : 'YYYY-MM-DD') : "YYYY-MM-DD";
 		bsDate = ConvertDateFormat(bsDate, format, 'YYYY-MM-DD');
@@ -342,7 +365,11 @@ var NepaliFunctions = (function () {
 		return (dateParts[1] > 0 && dateParts[1] <= 12) && (dateParts[2] > 0 && dateParts[2] <= totalDays) ? true : false;
 	}
 
-	// Get Current Day - English
+	/**
+	 * This function returns the current AD date.
+	 * @param {string} format any format
+	 * @returns {string} the current AD date.
+	 */
 	function GetCurrentAdDate(format) {
 		format = format ? dateFormats.indexOf(format) > -1 ? format : 'MM/DD/YYYY' : 'MM/DD/YYYY';
 		var date = new Date().toLocaleString("en-US", { timeZone: "Asia/Kathmandu" });
@@ -354,105 +381,178 @@ var NepaliFunctions = (function () {
 		return ConvertDateFormat(dateString, 'YYYY-MM-DD', format);
 	}
 
-	// Get Current Year - English
+	/**
+	 * This function returns the current AD year.
+	 * @returns {string} the current AD year.
+	 */
 	function GetCurrentAdYear() {
 		var adDate = NepaliFunctions.GetCurrentAdDate();
 		return parseInt(adDate.split('/')[2]);
 	}
 
+	/**
+	 * This function returns the current AD month.
+	 * @returns {string} the current AD month.
+	 */
 	function GetCurrentAdMonth() {
 		var adDate = NepaliFunctions.GetCurrentAdDate();
 		return parseInt(adDate.split('/')[0]);
 	}
 
+	/**
+	 * This function returns the current AD day.
+	 * @returns {string} the current AD day.
+	 */
 	function GetCurrentAdDay() {
 		var adDate = NepaliFunctions.GetCurrentAdDate();
 		return parseInt(adDate.split('/')[1]);
 	}
 
-	// Get Current Day - Nepali
+	/**
+	 * This function returns the current BS date.
+	 * @param {string} format any format
+	 * @returns {string} the current BS date.
+	 */
 	function GetCurrentBsDate(format) {
 		var adDate = GetCurrentAdDate();
 		return AD2BS(adDate, '', format);
 	}
 
-	// Get Current Year - Nepali
+	/**
+	 * This function returns the current BS year.
+	 * @returns {string} the current BS year.
+	 */
 	function GetCurrentBsYear() {
 		var bsDate = GetCurrentBsDate();
 		var dateParts = bsDate.split('/');
 		return dateParts[0];
 	}
 
-	// Get Current Month - Nepali
+	/**
+	 * This function returns the current BS month.
+	 * @returns {string} the current BS month.
+	 */
 	function GetCurrentBsMonth() {
 		var bsDate = GetCurrentBsDate();
 		var dateParts = bsDate.split('/');
 		return dateParts[1];
 	}
 
-	// Get Current Day - Nepali
+	/**
+	 * This function returns the current BS day.
+	 * @returns {string} the current BS day.
+	 */
 	function GetCurrentBsDay() {
 		var bsDate = GetCurrentBsDate();
 		var dateParts = bsDate.split('/');
 		return dateParts[2];
 	}
 
-	// Get English Months
+	/**
+	 * This function returns the AD months.
+	 * @returns {string} the AD months.
+	 */
 	function GetAdMonths() {
 		return new Array("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December");
 	}
 
-	function GetAdMonth(no) {
+	/**
+	 * This function returns the AD month.
+	 * @param {number} number any number
+	 * @returns {string} the AD month.
+	 */
+	function GetAdMonth(number) {
 		var months = GetAdMonths();
-		return months[parseInt(no, 10)];
+		return months[parseInt(number, 10)];
 	}
 
-	//Get Nepali Months
+	/**
+	 * This function returns the BS months in English.
+	 * @returns {string} the BS months.
+	 */
 	function GetBsMonths() {
 		return new Array('Baisakh', 'Jestha', 'Ashar', 'Shrawan', 'Bhadra', 'Ashoj', 'Kartik', 'Mangsir', 'Poush', 'Magh', 'Falgun', 'Chaitra');
 	}
 
-	function GetBsMonth(no) {
+	/**
+	 * This function returns the BS month in English.
+	 * @param {number} number any number
+	 * @returns {string} the BS month.
+	 */
+	function GetBsMonth(number) {
 		var months = GetBsMonths();
-		return months[parseInt(no, 10)];
+		return months[parseInt(number, 10)];
 	}
 
-	// Nepali Months in Nepali Unicode
-	function GetBsMonthsInNepali() {
+	/**
+	 * This function returns the BS months.
+	 * @returns {Array} the BS months.
+	 */
+	function GetBsMonthsInUnicode() {
 		return new Array('बैशाख', 'जेठ', 'अषाढ', 'श्रावण', 'भाद्र', 'आश्विन', 'कार्तिक', 'मङ्सिर', 'पौष', 'माघ', 'फाल्गुन', 'चैत्र');
 	}
 
-	function GetBsMonthInNepali(no) {
-		var months = GetBsMonthsInNepali();
-		return months[parseInt(no, 10)];
+	/**
+	 * This function returns the BS month in unicode.
+	 * @param {number} number any number
+	 * @returns {string} the BS month in unicode.
+	 */
+	function GetBsMonthInUnicode(number) {
+		var months = GetBsMonthsInUnicode();
+		return months[parseInt(number, 10)];
 	}
 
-	// Get Nepali Days
+	/**
+	 * This function returns the BS days in unicode.
+	 * @returns {Array} the BS days in unicode.
+	 */
 	function GetBsDays() {
 		return new Array("आइतवार", "सोमवार", "मङ्गलवार", "बुधवार", "बिहिवार", "शुक्रवार", "शनिवार");
 	}
 
-	function GetBsDay(day) {
+	/**
+	 * This function returns the BS day in unicode.
+	 * @param {number} number any number
+	 * @returns {string} the BS day in unicode.
+	 */
+	function GetBsDay(number) {
 		var days = GetBsDays();
 		return days[Number(day) - 1];
 	}
 
-	// Get Nepali Days Short
+	/**
+	 * This function returns the BS days in short.
+	 * @returns {Array} the BS days in short ("आ", "सो", "मं", "बु", "बि", "शु", "श").
+	 */
 	function GetBsDaysShort() {
 		return new Array("आ", "सो", "मं", "बु", "बि", "शु", "श");
 	}
 
-	// Get English Days
+	/**
+	 * This function returns the AD days.
+	 * @returns {Array} the AD days.
+	 */
 	function GetAdDays() {
 		return new Array("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday");
 	}
 
+	/**
+	 * This function returns the AD day.
+	 * @param {number} number any number
+	 * @returns {string} the AD day.
+	 */
 	function GetAdDay(number) {
 		var days = GetAdDays();
 		return days[Number(number)];
 	}
 
-	// Get Full Day - Nepali
+	/**
+	 * This function returns the full BS date.
+	 * @param {string} bsDate any number
+	 * @param {string} format any number
+	 * @param {boolean} unicodeFlag true or false
+	 * @returns {string} the full BS date.
+	 */
 	function GetBsFullDate(bsDate, format, unicodeFlag) {
 		var months = [];
 		format = format ? (dateFormats.indexOf(format) > -1 ? format : 'YYYY/MM/DD') : "YYYY/MM/DD";
@@ -474,6 +574,12 @@ var NepaliFunctions = (function () {
 		return returnString;
 	}
 
+	/**
+	 * This function returns the full AD date.
+	 * @param {string} adDate any number
+	 * @param {string} format any number
+	 * @returns {string} the full AD date.
+	 */
 	function GetAdFullDate(adDate, format) {
 		format = format ? (dateFormats.indexOf(format) > -1 ? format : 'MM/DD/YYYY') : "MM/DD/YYYY";
 		adDate = ConvertDateFormat(adDate, format, 'YYYY-MM-DD');
@@ -482,6 +588,12 @@ var NepaliFunctions = (function () {
 		return Number(dateParts[2]) + " " + NepaliFunctions.GetAdMonth(dateParts[1] - 1) + ", " + dateParts[0];
 	}
 
+	/**
+	 * This function returns the day for the given AD date.
+	 * @param {string} adDate any number
+	 * @param {string} format any number
+	 * @returns {string} the day.
+	 */
 	function GetAdFullDay(adDate, format) {
 		format = format ? (dateFormats.indexOf(format) > -1 ? format : 'MM/DD/YYYY') : "MM/DD/YYYY";
 		adDate = ConvertDateFormat(adDate, format, 'YYYY-MM-DD');
@@ -491,7 +603,14 @@ var NepaliFunctions = (function () {
 		return GetAdDay(adDate.getDay());
 	}
 
-	// Add/Subtract Days to BS Date
+	/**
+	 * This function returns the BS date after adding the number of days.
+	 * @param {string} bsDate any number
+	 * @param {number} noOfDays any number
+	 * @param {string} format any number
+	 * @param {string} returnFormat any number
+	 * @returns {string} the BS date after adding the number of days.
+	 */
 	function BsAddDays(bsDate, noOfDays, format, returnFormat) {
 		format = format ? dateFormats.indexOf(format) > -1 ? format : 'YYYY-MM-DD' : 'YYYY-MM-DD';
 		if (!ValidateBsDate(bsDate, format)) return false;
@@ -500,6 +619,13 @@ var NepaliFunctions = (function () {
 		return ConvertDateFormat(ndc.add_bs_days(bsDate, noOfDays), 'YYYY-MM-DD', returnFormat);
 	}
 
+	/**
+	 * This function returns that number of days between the two AD dates.
+	 * @param {string} startDate any number
+	 * @param {string} endDate any number
+	 * @param {string} format any number
+	 * @returns {number} that number of days between the two AD dates.
+	 */
 	function AdDatesDiff(startDate, endDate, format) {
 		format = format ? dateFormats.indexOf(format) > -1 ? format : 'YYYY-MM-DD' : 'YYYY-MM-DD';
 		startDate = ConvertDateFormat(startDate, format, 'YYYY-MM-DD');
@@ -508,7 +634,13 @@ var NepaliFunctions = (function () {
 		return ndc.count_ad_days(startDate, endDate);
 	}
 
-	// Difference Between two BS dates
+	/**
+	 * This function returns that number of days between the two BS dates.
+	 * @param {string} startDate any number
+	 * @param {string} endDate any number
+	 * @param {string} format any number
+	 * @returns {number} that number of days between the two BS dates.
+	 */
 	function BsDatesDiff(startDate, endDate, format) {
 		format = format ? dateFormats.indexOf(format) > -1 ? format : 'YYYY/MM/DD' : 'YYYY/MM/DD';
 		if (!ValidateBsDate(startDate, format)) return false;
@@ -523,19 +655,33 @@ var NepaliFunctions = (function () {
 		return ndc.count_ad_days(startDate, endDate);
 	}
 
-	// Get Days in AD Month
+	/**
+	 * This function returns the number of days in the given AD year and month.
+	 * @param {number} year any number
+	 * @param {number} month any number
+	 * @returns {number} that number of days in the given AD year and month.
+	 */
 	function GetDaysInAdMonth(year, month) {
 		var adDate = new Date(year, month, 0);
 		return adDate.getDate()
 	}
 
-	// Get Days in BS Month
+	/**
+	 * This function returns the number of days in the given BS year and month.
+	 * @param {number} year any number
+	 * @param {number} month any number
+	 * @returns {number} that number of days in the given BS year and month.
+	 */
 	function GetDaysInBsMonth(year, month) {
 		var ndc = new NepaliDateConverter();
 		return ndc.get_days_in_month(year, month);
 	}
 
-	// Convert to Unicode
+	/**
+	 * This function converts number to unicode.
+	 * @param {number} number any number
+	 * @returns {string} that number converted to unicode string.
+	 */
 	function ConvertToUnicode(number) {
 		number = number.toString();
 		var returnString = "";
@@ -570,7 +716,11 @@ var NepaliFunctions = (function () {
 		}
 	}
 
-	// Convert to font
+	/**
+	 * This function converts unicode to number.
+	 * @param {string} unicode any unicode number
+	 * @returns {number} that number.
+	 */
 	function ConvertToNumber(unicode) {
 		unicode = unicode.toString();
 		var returnString = "";
@@ -605,6 +755,11 @@ var NepaliFunctions = (function () {
 		}
 	}
 
+	/**
+	 * This function returns two digit numbers.
+	 * @param {number} number any number
+	 * @returns {string} that number, with 0 appended if its less than 10.
+	 */
 	function Get2DigitNo(number) {
 		return number < 10 ? "0" + Number(number) : number;
 	}
