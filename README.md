@@ -28,8 +28,9 @@ Usage
 -----
 
 Include the nepaliFunctions.min.js in your application, then you are done.
-
+```html
 <script src="nepaliFunctions.min.js" type="text/javascript" charset="utf-8"></script>
+```
 
 Rules of the thumb
 ------------------
