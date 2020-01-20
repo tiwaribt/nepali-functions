@@ -1,0 +1,1 @@
+documentation build sajan.nepaliFunctions.js -f html -o documentation
