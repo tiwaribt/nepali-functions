@@ -1,7 +1,7 @@
 NepaliFunctions v1.0.0
 ======================
 
-![Screenshot](https://github.com/sajanm/nepali-functions/bg.jpg)
+![Screenshot](https://github.com/sajanm/nepali-functions/blob/master/bg.jpg)
 
 Summary
 -------
