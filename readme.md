@@ -13,7 +13,7 @@ Documentation
 
 The link for the documentation is provided below:
 
-<link>
+[Documention](http://nepalifunctions.sajanmaharjan.com.np/documentation/index.html)
 
 Installation
 ------------
