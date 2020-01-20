@@ -36,30 +36,27 @@ Rules of the thumb
 ------------------
 
 While making use of the date functions, we are looking to create a simple date object: 
-
+```js
 {year: 2000, month: 1, day: 1}.
-
+```
 **Acceptable date formats:**
 
 "MM/DD/YYYY", "MM-DD-YYYY", "YYYY-MM-DD", "YYYY/MM/DD"
 
 If we have a date string in any of the given format, the date can be converted to the date object using the function NepaliFunctions.ConvertToDateObject(dateString, format).
-
+```html
 NepaliFunctions.ConvertToDateObject("2000-01-01", "YYYY-MM-DD")
-
 // returns { year: 2000, month: 1, day: 1}
 
 NepaliFunctions.ConvertToDateObject("2000/01/01", "YYYY/MM/DD")
-
 // returns { year: 2000, month: 1, day: 1}
 
 NepaliFunctions.ConvertToDateObject("01-01-2000", "MM-DD-YYYY")
-
 // returns { year: 2000, month: 1, day: 1}
 
 NepaliFunctions.ConvertToDateObject("01/01/2000", "MM/DD/YYYY")
-
 // returns { year: 2000, month: 1, day: 1}
+```
 
 Once the object is created, we can make use of all the date related functions.
 
