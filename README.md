@@ -37,14 +37,14 @@ Rules of the thumb
 
 While making use of the date functions, we are looking to create a simple date object: 
 ```js
-{year: 2000, month: 1, day: 1}.
+{year: 2000, month: 1, day: 1}
 ```
 **Acceptable date formats:**
 
 "MM/DD/YYYY", "MM-DD-YYYY", "YYYY-MM-DD", "YYYY/MM/DD"
 
 If we have a date string in any of the given format, the date can be converted to the date object using the function NepaliFunctions.ConvertToDateObject(dateString, format).
-```html
+```js
 NepaliFunctions.ConvertToDateObject("2000-01-01", "YYYY-MM-DD")
 // returns { year: 2000, month: 1, day: 1}
 
@@ -64,21 +64,19 @@ Once the object is created, we can make use of all the date related functions.
 
 Once we have manipulated the date object according to our need, we can convert back the date object to string using ConvertDateFormat(dateObj: string, returnFormat: string)
 
+```js
 NepaliFunctions.ConvertDateFormat({year: 2000, month: 1, day: 1}, "YYYY-MM-DD")
-
 // Returns "2001-01-01"
 
 NepaliFunctions.ConvertDateFormat({year: 2000, month: 1, day: 1}, "YYYY/MM/DD")
-
 // Returns "2001/01/01"
 
 NepaliFunctions.ConvertDateFormat({year: 2000, month: 1, day: 1}, "MM-DD-YYYY")
-
 // Returns "01-01-2001"
 
 NepaliFunctions.ConvertDateFormat({year: 2000, month: 1, day: 1}, "MM/DD/YYYY")
-
 // Returns "01/01/2001"
+```
 
 **Date Related Functions**
 
@@ -118,25 +116,22 @@ NepaliFunctions.ConvertDateFormat({year: 2000, month: 1, day: 1}, "MM/DD/YYYY")
 **Other functions**
 
 *   ConvertToUnicode(number: number)
-
+```js
 NepaliFunctions.ConvertToUnicode(123456789)
-
 // Returns १२३४५६७८९
-
+```
 *   ConvertToNumber(unicode: string)
-
+```js
 NepaliFunctions.ConvertToNumber("१२३४५६७८९")
-
 // Returns 123456789
-
+```
 *   NumberToWords(number: number)
-
+```js
 NepaliFunctions.NumberToWordsUnicode(123456000.12)
-
 // Returns Twelve Crore Thirty Four Lakh Fifty Six Thousand Rupees and Twelve Paisa
-
+```
 *   NumberToWordsUnicode(number: number)
-
+```js
 NepaliFunctions.NumberToWordsUnicode(123456000.12)
-
 // Returns बाह्र करोड चौतीस लाख छपन्न हजार रुपैंया, बाह्र पैसा
+```
