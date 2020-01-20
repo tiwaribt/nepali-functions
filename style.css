@@ -1,8 +1,16 @@
 body{
     font-family: 'Open Sans', sans-serif;
+    max-width: 900px;
+    margin: 0px auto;
 }
 
-p{
+pre{
+    background: #f9f9f9;
+    padding: 15px;
+    color: green;
+}
+
+#examples p{
     background: #f9f9f9;
     padding: 15px;
     padding-bottom: 10px;
@@ -12,7 +20,7 @@ p{
     font-size: 14px;
 }
 
-pre{
+#examples pre{
     background: #f9f9f9;
     margin: 0px;
     padding: 0px 15px 15px 15px;

@@ -4,7 +4,7 @@ NepaliFunctions v1.0.0
 Summary
 -------
 
-nepaliFunctions is a javascript utility aimed at easing basic nepali functionalities. The utility provides a list of functionalities that are mostly used in nepali websites and applications.
+NepaliFunctions is a javascript utility aimed at easing basic nepali functionalities. The utility provides a list of functionalities that are mostly used in nepali websites and applications.
 
 Documentation
 -------------

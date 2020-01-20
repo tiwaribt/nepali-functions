@@ -1,15 +1,127 @@
 <html>
     <head>
-        <title>Nepali.Functions</title>
+        <title>Nepali.Functions v1.0.0</title>
         <meta charset="utf-8"/>
         <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
         <link href="style.css" rel="stylesheet">
     </head>
     <body>
-        <h1>Nepali.Functions</h1>
+        <!-- <h1>Nepali.Functions v1.0.0</h1> -->
+        <div>
+            <br/>
+            <h1 id="nepalifunctions-v1-0-0">NepaliFunctions v1.0.0</h1>
+            <img src="bg.jpg" width="100%"/>
+            <h2 id="summary">Summary</h2>
+            <p>NepaliFunctions is a javascript utility aimed at easing basic nepali functionalities. The utility provides a list of functionalities that are mostly used in nepali websites and applications.</p>
+            <h2 id="documentation">Documentation</h2>
+            <p>The link for the documentation is provided below:</p>
+            <a href="documentation/index.html" target="_blank">Full Documentation</a>
+
+            <h2 id="installation">Installation</h2>
+            <p>Download <link></p>
+            <p>The archive contains the core library and a demo of all the functions.</p>
+            <ol>
+            <li>Unpack the archive</li>
+            <li>Include the script nepaliFunctions.min.js in your page</li>
+            <li>Start using the functions</li>
+            </ol>
+            <h2 id="usage">Usage</h2>
+            <p>Include the nepaliFunctions.min.js in your application, then you are done.</p>
+            <pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"nepaliFunctions.min.js"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/javascript"</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"utf-8"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+            </code></pre>
+            <h2 id="rules-of-the-thumb">Rules of the thumb</h2>
+            <p>While making use of the date functions, we are looking to create a simple date object: </p>
+            <pre><code class="lang-js">{<span class="hljs-attribute">year</span>: <span class="hljs-number">2000</span>, month: <span class="hljs-number">1</span>, day: <span class="hljs-number">1</span>}
+            </code></pre>
+            <p><strong>Acceptable date formats:</strong></p>
+            <p>&quot;MM/DD/YYYY&quot;, &quot;MM-DD-YYYY&quot;, &quot;YYYY-MM-DD&quot;, &quot;YYYY/MM/DD&quot;</p>
+            <p>If we have a date string in any of the given format, the date can be converted to the date object using the function NepaliFunctions.ConvertToDateObject(dateString, format).</p>
+            <pre><code class="lang-js">NepaliFunctions.ConvertToDateObject(<span class="hljs-string">"2000-01-01"</span>, <span class="hljs-string">"YYYY-MM-DD"</span>)
+            // <span class="hljs-keyword">returns</span> { year: <span class="hljs-number">2000</span>, <span class="hljs-literal">month</span>: <span class="hljs-number">1</span>, day: <span class="hljs-number">1</span>}
+
+            <span class="hljs-keyword">NepaliFunctions</span>.ConvertToDateObject(<span class="hljs-string">"2000/01/01"</span>, <span class="hljs-string">"YYYY/MM/DD"</span>)
+            // <span class="hljs-keyword">returns</span> { year: <span class="hljs-number">2000</span>, <span class="hljs-literal">month</span>: <span class="hljs-number">1</span>, day: <span class="hljs-number">1</span>}
+
+            <span class="hljs-keyword">NepaliFunctions</span>.ConvertToDateObject(<span class="hljs-string">"01-01-2000"</span>, <span class="hljs-string">"MM-DD-YYYY"</span>)
+            // <span class="hljs-keyword">returns</span> { year: <span class="hljs-number">2000</span>, <span class="hljs-literal">month</span>: <span class="hljs-number">1</span>, day: <span class="hljs-number">1</span>}
+
+            <span class="hljs-keyword">NepaliFunctions</span>.ConvertToDateObject(<span class="hljs-string">"01/01/2000"</span>, <span class="hljs-string">"MM/DD/YYYY"</span>)
+            // <span class="hljs-keyword">returns</span> { year: <span class="hljs-number">2000</span>, <span class="hljs-literal">month</span>: <span class="hljs-number">1</span>, day: <span class="hljs-number">1</span>}
+            </code></pre>
+            <p>Once the object is created, we can make use of all the date related functions.</p>
+            <p><strong>Conversion back to string</strong></p>
+            <p>Once we have manipulated the date object according to our need, we can convert back the date object to string using ConvertDateFormat(dateObj: string, returnFormat: string)</p>
+            <pre><code class="lang-js">NepaliFunctions.ConvertDateFormat({<span class="hljs-string">year:</span> <span class="hljs-number">2000</span>, <span class="hljs-string">month:</span> <span class="hljs-number">1</span>, <span class="hljs-string">day:</span> <span class="hljs-number">1</span>}, <span class="hljs-string">"YYYY-MM-DD"</span>)
+            <span class="hljs-comment">// Returns "2001-01-01"</span>
+
+            NepaliFunctions.ConvertDateFormat({<span class="hljs-string">year:</span> <span class="hljs-number">2000</span>, <span class="hljs-string">month:</span> <span class="hljs-number">1</span>, <span class="hljs-string">day:</span> <span class="hljs-number">1</span>}, <span class="hljs-string">"YYYY/MM/DD"</span>)
+            <span class="hljs-comment">// Returns "2001/01/01"</span>
+
+            NepaliFunctions.ConvertDateFormat({<span class="hljs-string">year:</span> <span class="hljs-number">2000</span>, <span class="hljs-string">month:</span> <span class="hljs-number">1</span>, <span class="hljs-string">day:</span> <span class="hljs-number">1</span>}, <span class="hljs-string">"MM-DD-YYYY"</span>)
+            <span class="hljs-comment">// Returns "01-01-2001"</span>
+
+            NepaliFunctions.ConvertDateFormat({<span class="hljs-string">year:</span> <span class="hljs-number">2000</span>, <span class="hljs-string">month:</span> <span class="hljs-number">1</span>, <span class="hljs-string">day:</span> <span class="hljs-number">1</span>}, <span class="hljs-string">"MM/DD/YYYY"</span>)
+            <span class="hljs-comment">// Returns "01/01/2001"</span>
+            </code></pre>
+            <p><strong>Date Related Functions</strong></p>
+            <ul>
+            <li>ConvertToDateObject: Convert date string to object</li>
+            <li>ConvertDateFormat: Convert date object to string</li>
+            <li>AD2BS: Convert AD to BS</li>
+            <li>BS2AD: Convert BS to AD</li>
+            <li>ValidateBsDate: Validate if the given BS date is valid</li>
+            <li>GetCurrentAdDate: Gets the Current AD Date</li>
+            <li>GetCurrentAdYear: Gets the Current AD Year</li>
+            <li>GetCurrentAdMonth: Gets the Current AD Month</li>
+            <li>GetCurrentAdDay: Gets the Current AD Day</li>
+            <li>GetCurrentBsDate: Gets the Current BS Date</li>
+            <li>GetCurrentBsYear: Gets the Current BS Year</li>
+            <li>GetCurrentBsMonth: Get the Current BS Month</li>
+            <li>GetCurrentBsDay: Gets the Current BS Day</li>
+            <li>GetAdMonths: Get AD Month List</li>
+            <li>GetAdMonth: Get AD Month</li>
+            <li>GetBsMonths: Get BS Month List</li>
+            <li>GetBsMonth: Get BS Month</li>
+            <li>GetBsDays: Get BS Day List</li>
+            <li>GetBsDay: Get BS Day</li>
+            <li>GetBsDaysUnicodeShort: Get BS Day List in Short</li>
+            <li>GetAdDays: Get AD Day List</li>
+            <li>GetAdDay: Get AD Day</li>
+            <li>GetBsMonthsInUnicode: Get BS Month List In Nepali</li>
+            <li>GetBsMonthInUnicode: Get BS Month In Nepali</li>
+            <li>GetDaysInAdMonth: Get Days in the given AD Month</li>
+            <li>GetDaysInBsMonth: Get Days in the given BS Month</li>
+            <li>AdDatesDiff: Difference between two AD dates</li>
+            <li>BsDatesDiff: Difference between two BS dates</li>
+            <li>BsAddDays: Add days to given BS date</li>
+            <li>GetBsFullDate: Get full BS date</li>
+            <li>GetAdFullDate: Get full AD date</li>
+            <li>GetAdFullDay: Get Full AD day</li>
+            </ul>
+            <p><strong>Other functions</strong></p>
+            <ul>
+            <li>ConvertToUnicode(number: number)<pre><code class="lang-js"><span class="hljs-selector-tag">NepaliFunctions</span><span class="hljs-selector-class">.ConvertToUnicode</span>(<span class="hljs-number">123456789</span>)
+            <span class="hljs-comment">// Returns १२३४५६७८९</span>
+            </code></pre>
+            </li>
+            <li>ConvertToNumber(unicode: string)<pre><code class="lang-js"><span class="hljs-selector-tag">NepaliFunctions</span><span class="hljs-selector-class">.ConvertToNumber</span>(<span class="hljs-string">"१२३४५६७८९"</span>)
+            <span class="hljs-comment">// Returns 123456789</span>
+            </code></pre>
+            </li>
+            <li>NumberToWords(number: number)<pre><code class="lang-js"><span class="hljs-selector-tag">NepaliFunctions</span><span class="hljs-selector-class">.NumberToWordsUnicode</span>(<span class="hljs-number">123456000.12</span>)
+            <span class="hljs-comment">// Returns Twelve Crore Thirty Four Lakh Fifty Six Thousand Rupees and Twelve Paisa</span>
+            </code></pre>
+            </li>
+            <li>NumberToWordsUnicode(number: number)<pre><code class="lang-js"><span class="hljs-selector-tag">NepaliFunctions</span><span class="hljs-selector-class">.NumberToWordsUnicode</span>(<span class="hljs-number">123456000.12</span>)
+            <span class="hljs-comment">// Returns बाह्र करोड चौतीस लाख छपन्न हजार रुपैंया, बाह्र पैसा</span>
+            </code></pre>
+            </li>
+            </ul>
+        </div>
+        <h2>Examples</h2>
         <div id="examples"></div>
         
-        <script src="sajan.nepaliFunctions.js"></script>
+        <script src="sajan.nepaliFunctions.min.js"></script>
         <script src="script.js"></script>
         <script src="script1.js"></script>
     </body>
