@@ -150,14 +150,24 @@ returnString += '<pre>' + JSON.stringify(NepaliFunctions.Get2DigitNo(1)) + '</pr
 returnString += '<p>NepaliFunctions.Get2DigitNo(12)' + '</p>'
 returnString += '<pre>' + JSON.stringify(NepaliFunctions.Get2DigitNo(12)) + '</pre>';
 
-returnString += '<p>NepaliFunctions.NumberToWords(123456000.12)' + '</p>'
-returnString += '<pre>' + JSON.stringify(NepaliFunctions.NumberToWords(123456000.12)) + '</pre>';
-returnString += '<p>NepaliFunctions.NumberToWords(12)' + '</p>'
-returnString += '<pre>' + JSON.stringify(NepaliFunctions.NumberToWords(12)) + '</pre>';
+returnString += '<p>NepaliFunctions.NumberToWords(123456000.12, true)' + '</p>'
+returnString += '<pre>' + JSON.stringify(NepaliFunctions.NumberToWords(123456000.12, true)) + '</pre>';
+returnString += '<p>NepaliFunctions.NumberToWords(12, true)' + '</p>'
+returnString += '<pre>' + JSON.stringify(NepaliFunctions.NumberToWords(12, true)) + '</pre>';
 
-returnString += '<p>NepaliFunctions.NumberToWordsUnicode(123456000.12)' + '</p>'
-returnString += '<pre>' + JSON.stringify(NepaliFunctions.NumberToWordsUnicode(123456000.12)) + '</pre>';
-returnString += '<p>NepaliFunctions.NumberToWordsUnicode(12)' + '</p>'
-returnString += '<pre>' + JSON.stringify(NepaliFunctions.NumberToWordsUnicode(12)) + '</pre>';
+returnString += '<p>NepaliFunctions.NumberToWords(123456000.12, false)' + '</p>'
+returnString += '<pre>' + JSON.stringify(NepaliFunctions.NumberToWords(123456000.12, false)) + '</pre>';
+returnString += '<p>NepaliFunctions.NumberToWords(12, false)' + '</p>'
+returnString += '<pre>' + JSON.stringify(NepaliFunctions.NumberToWords(12, false)) + '</pre>';
+
+returnString += '<p>NepaliFunctions.NumberToWordsUnicode(123456000.12, true)' + '</p>'
+returnString += '<pre>' + JSON.stringify(NepaliFunctions.NumberToWordsUnicode(123456000.12, true)) + '</pre>';
+returnString += '<p>NepaliFunctions.NumberToWordsUnicode(12, true)' + '</p>'
+returnString += '<pre>' + JSON.stringify(NepaliFunctions.NumberToWordsUnicode(12, true)) + '</pre>';
+
+returnString += '<p>NepaliFunctions.NumberToWordsUnicode(123456000.12, false)' + '</p>'
+returnString += '<pre>' + JSON.stringify(NepaliFunctions.NumberToWordsUnicode(123456000.12, false)) + '</pre>';
+returnString += '<p>NepaliFunctions.NumberToWordsUnicode(12, false)' + '</p>'
+returnString += '<pre>' + JSON.stringify(NepaliFunctions.NumberToWordsUnicode(12, false)) + '</pre>';
 
 document.getElementById('examples').innerHTML = returnString;

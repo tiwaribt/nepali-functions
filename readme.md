@@ -18,7 +18,8 @@ The link for the documentation is provided below:
 Installation
 ------------
 
-Download <link>
+Download 
+[zip](https://github.com/sajanm/nepali-functions/archive/master.zip)
 
 The archive contains the core library and a demo of all the functions.
 
@@ -127,13 +128,13 @@ NepaliFunctions.ConvertToUnicode(123456789)
 NepaliFunctions.ConvertToNumber("१२३४५६७८९")
 // Returns 123456789
 ```
-*   NumberToWords(number: number)
+*   NumberToWords(number: number, isCurrency: boolean)
 ```js
-NepaliFunctions.NumberToWordsUnicode(123456000.12)
+NepaliFunctions.NumberToWords(123456000.12, true)
 // Returns Twelve Crore Thirty Four Lakh Fifty Six Thousand Rupees and Twelve Paisa
 ```
-*   NumberToWordsUnicode(number: number)
+*   NumberToWordsUnicode(number: number, isCurrency: boolean)
 ```js
-NepaliFunctions.NumberToWordsUnicode(123456000.12)
+NepaliFunctions.NumberToWordsUnicode(123456000.12, true)
 // Returns बाह्र करोड चौतीस लाख छपन्न हजार रुपैंया, बाह्र पैसा
 ```
