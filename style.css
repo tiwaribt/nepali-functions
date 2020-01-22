@@ -26,3 +26,8 @@ pre{
     padding: 0px 15px 15px 15px;
     color: green;
 }
+
+.github{
+    float: right;
+    padding-top: 35px;
+}

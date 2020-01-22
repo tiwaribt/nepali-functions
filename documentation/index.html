@@ -3158,7 +3158,7 @@
 
   <p>This function returns number to words in string.</p>
 
-    <div class='pre p1 fill-light mt0'>new NumberToWords(number: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
+    <div class='pre p1 fill-light mt0'>new NumberToWords(number: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>, isCurrency: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
   
   
 
@@ -3177,6 +3177,15 @@
           <div>
             <span class='code bold'>number</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
 	    any number
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>isCurrency</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>)</code>
+	    true if you want to display currency
 
           </div>
           
@@ -3203,12 +3212,19 @@
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>NepaliFunctions.NumberToWordsUnicode(<span class="hljs-number">123456000.12</span>)
-<span class="hljs-comment">// Returns बाह्र करोड चौतीस लाख छपन्न हजार रुपैंया, बाह्र पैसा</span></pre>
+      <pre class='p1 overflow-auto round fill-light'>NepaliFunctions.NumberToWordsUnicode(<span class="hljs-number">123456000.12</span>, <span class="hljs-literal">true</span>)
+<span class="hljs-comment">// Returns Twelve Crore Thirty Four Lakh Fifty Six Thousand Rupees and Twelve Paisa</span></pre>
     
       
-      <pre class='p1 overflow-auto round fill-light'>NepaliFunctions.NumberToWordsUnicode(<span class="hljs-number">12</span>)
-<span class="hljs-comment">// Returns Twelve Crore Thirty Four Lakh Fifty Six Thousand Rupees and Twelve Paisa</span></pre>
+      <pre class='p1 overflow-auto round fill-light'>NepaliFunctions.NumberToWordsUnicode(<span class="hljs-number">12</span>, <span class="hljs-literal">true</span>)</pre>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'>NepaliFunctions.NumberToWordsUnicode(<span class="hljs-number">123456000.12</span>, <span class="hljs-literal">false</span>)
+<span class="hljs-comment">// Returns Twelve Crore Thirty Four Lakh Fifty Six Thousand</span></pre>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'>NepaliFunctions.NumberToWordsUnicode(<span class="hljs-number">12</span>, <span class="hljs-literal">false</span>)
+<span class="hljs-comment">// Returns Twelve</span></pre>
     
   
 
@@ -3239,7 +3255,7 @@
 
   <p>This function returns number to words in unicode string.</p>
 
-    <div class='pre p1 fill-light mt0'>new NumberToWordsUnicode(number: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
+    <div class='pre p1 fill-light mt0'>new NumberToWordsUnicode(number: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>, isCurrency: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
   
   
 
@@ -3258,6 +3274,15 @@
           <div>
             <span class='code bold'>number</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
 	    any number
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>isCurrency</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>)</code>
+	    true if you want to display currency
 
           </div>
           
@@ -3284,12 +3309,19 @@
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>NepaliFunctions.NumberToWordsUnicode(<span class="hljs-number">123456000.12</span>)
+      <pre class='p1 overflow-auto round fill-light'>NepaliFunctions.NumberToWordsUnicode(<span class="hljs-number">123456000.12</span>, <span class="hljs-literal">true</span>)
 <span class="hljs-comment">// Returns बाह्र करोड चौतीस लाख छपन्न हजार रुपैंया, बाह्र पैसा</span></pre>
     
       
-      <pre class='p1 overflow-auto round fill-light'>NepaliFunctions.NumberToWordsUnicode(<span class="hljs-number">12</span>)
-<span class="hljs-comment">// Returns बाह्र रुपैंया</span></pre>
+      <pre class='p1 overflow-auto round fill-light'>NepaliFunctions.NumberToWordsUnicode(<span class="hljs-number">12</span>, <span class="hljs-literal">true</span>)</pre>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'>NepaliFunctions.NumberToWordsUnicode(<span class="hljs-number">123456000.12</span>, <span class="hljs-literal">false</span>)
+<span class="hljs-comment">// Returns बाह्र करोड चौतीस लाख छपन्न हजार</span></pre>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'>NepaliFunctions.NumberToWordsUnicode(<span class="hljs-number">12</span>, <span class="hljs-literal">false</span>)
+<span class="hljs-comment">// Returns बाह्र</span></pre>
     
   
 

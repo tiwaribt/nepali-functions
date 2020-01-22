@@ -1016,15 +1016,21 @@ var NepaliFunctions = (function () {
     /**
      * This function returns number to words in string.
      * @param {number} number any number
+     * @param {boolean} isCurrency true if you want to display currency
      * @returns {string} that number, converted to words.
      * @example
-     * NepaliFunctions.NumberToWordsUnicode(123456000.12)
-     * // Returns बाह्र करोड चौतीस लाख छपन्न हजार रुपैंया, बाह्र पैसा
-     * @example
-     * NepaliFunctions.NumberToWordsUnicode(12)
+     * NepaliFunctions.NumberToWordsUnicode(123456000.12, true)
      * // Returns Twelve Crore Thirty Four Lakh Fifty Six Thousand Rupees and Twelve Paisa
+     * @example
+     * NepaliFunctions.NumberToWordsUnicode(12, true)
+     * @example
+     * NepaliFunctions.NumberToWordsUnicode(123456000.12, false)
+     * // Returns Twelve Crore Thirty Four Lakh Fifty Six Thousand
+     * @example
+     * NepaliFunctions.NumberToWordsUnicode(12, false)
+     * // Returns Twelve
      */
-    function NumberToWords(number) {
+    function NumberToWords(number, isCurrency) {
         number =  number || 0;
         if (isNaN(number) || Math.floor(number).toString().length > 13){
             return null;
@@ -1074,10 +1080,10 @@ var NepaliFunctions = (function () {
         if (hundred > 0) { words += ' ' + convert99ToWords(hundred) + ' Hundred' }
         if (tenns > 0) { words += ' ' + convert99ToWords(tenns); }
 
-        if (words.trim() != "")
+        if (words.trim() != "" && isCurrency)
             words += ' Rupees';
 
-        if (decimals > 0) {
+        if (decimals > 0 && isCurrency) {
             words += ' and ' + convert99ToWords(decimals) + ' Paisa';
         }
 
@@ -1133,15 +1139,21 @@ var NepaliFunctions = (function () {
     /**
      * This function returns number to words in unicode string.
      * @param {number} number any number
+     * @param {boolean} isCurrency true if you want to display currency
      * @returns {string} that number, converted to words in unicode.
      * @example
-     * NepaliFunctions.NumberToWordsUnicode(123456000.12)
+     * NepaliFunctions.NumberToWordsUnicode(123456000.12, true)
      * // Returns बाह्र करोड चौतीस लाख छपन्न हजार रुपैंया, बाह्र पैसा
      * @example
-     * NepaliFunctions.NumberToWordsUnicode(12)
-     * // Returns बाह्र रुपैंया
+     * NepaliFunctions.NumberToWordsUnicode(12, true)
+     * @example
+     * NepaliFunctions.NumberToWordsUnicode(123456000.12, false)
+     * // Returns बाह्र करोड चौतीस लाख छपन्न हजार
+     * @example
+     * NepaliFunctions.NumberToWordsUnicode(12, false)
+     * // Returns बाह्र
      */
-    function NumberToWordsUnicode(number) {
+    function NumberToWordsUnicode(number, isCurrency) {
         number = number || 0;
         // Confirm it is a number
         if (isNaN(number) || Math.floor(number).toString().length > 13) { 
@@ -1213,11 +1225,11 @@ var NepaliFunctions = (function () {
             if (hundred > 0) { words += ' ' + units[hundred] + ' सय' }
             if (tenns > 0) { words += ' ' + units[tenns]; }
     
-            if (words.trim() != "")
+            if (words.trim() != "" && isCurrency)
                 words += ' रुपैंया';
     
-            if (decimals > 0) {
-                words += (words.trim() != "" ? ', ' : "") + decimal_words;
+            if (decimals > 0 && isCurrency) {
+                words += (words.trim() != "" ? ' ' : "") + decimal_words;
             }
     
             return words.trim();
